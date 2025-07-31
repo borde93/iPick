@@ -43,7 +43,7 @@ For the purpose of this library, I am only focusing in the arm unit with the cam
 ## Software
 The perception pipeline works as follow:
 
-::: mermaid
+``` mermaid
 graph LR;
 
     RealSense(("**Intel Realsense**
@@ -61,7 +61,7 @@ graph LR;
     
     e1@{ animate: true }
     e2@{ animate: true}
-:::
+```
 
 **Intel Realsense node** is responsible of reading and publishing the frames from the camera as ROS messages. <BR> 
 It uses the ROS library from Intel, which simplifies the process. It publishes in different topics the color image, the aligned depth info, as well as the intrinsic and extrinsic informations of the camera. <BR>
@@ -105,7 +105,7 @@ The **SwiftPro** node subscribes to this topic. If it is not already trying to p
 
 The server will perform the following logic:
 
-:::mermaid
+```mermaid
 
 flowchart TD
     A[New strawberry coord received] --> B{Can reach it?}
@@ -117,7 +117,7 @@ flowchart TD
     D --> F[Place strawberry inside basked]
     F -->G[Return to home position]
     
-:::
+```
  
  ## Conclusions 
  Overall the system has functioned as intended. Unfortunately I don't have access to the ARM anymore, therefore, I won't be able to continue the development.

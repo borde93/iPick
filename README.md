@@ -40,6 +40,15 @@ Following is a diagram of the robot's Hardware
 The main computational power of the robot comes from the Jetson, while an arduino controls and reads the rover encoders. <br>
 For the purpose of this library, I am only focusing in the arm unit with the camera attached ignoring the rover with exception of the Jetson.
 
+A gripper extension was built to increase the reach of the arm
+![Gripper extention](/Images/Gripper.jpg)
+
+Also a PCB was designed to improve all the cable management from the Arduino to the motor drivers and encoders
+
+![PCB](/Images/PCBD.jpg)
+
+
+
 ## Software
 The perception pipeline works as follow:
 
@@ -62,6 +71,8 @@ graph LR;
     e1@{ animate: true }
     e2@{ animate: true}
 ```
+The **swftpro_py** package was written from scratch, and includes  the ``swiftpro_read_node`` that routinely publish the current ``tf`` of the arm with respect to the base. This node also hosts the action server node for the picking operation (initially a server_node was created, but the arm was glitching as it couldn't read the current position while it was moving, to fix the problem and simplify the process, a boolean ``self.is_moving`` was created inside ``swiftpro_read_node.py`` to prevent glitches). 
+
 
 **Intel Realsense node** is responsible of reading and publishing the frames from the camera as ROS messages. <BR> 
 It uses the ROS library from Intel, which simplifies the process. It publishes in different topics the color image, the aligned depth info, as well as the intrinsic and extrinsic informations of the camera. <BR>
@@ -101,7 +112,8 @@ Following is an example of a detected strawberry visualized in RViz:
 
 If one or more strawberries are detected the coordinates are published in the ``/yolo/strawberry_arm_coord`` topic.
 
-The **SwiftPro** node subscribes to this topic. If it is not already trying to pick a strawberry, the client will send a goal to the arm server in order to start the picking process.
+The **SwiftPro**subscribes to this topic. If it is not already trying to pick a strawberry, the client will send a goal to the arm server in order to start the picking process.
+
 
 The server will perform the following logic:
 

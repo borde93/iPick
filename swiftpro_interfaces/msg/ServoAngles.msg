@@ -1,0 +1,3 @@
+float64 motor_angle1
+float64 motor_angle2
+float64 motor_angle3

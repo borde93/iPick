@@ -1,0 +1,9 @@
+#goal
+#geometry_msgs/PointStamped target
+swiftpro_interfaces/ArmPointDetection target
+---
+#result
+bool move_completed
+---
+#feedback
+#geometry_msgs/Pose current_position

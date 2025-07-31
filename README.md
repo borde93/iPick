@@ -40,7 +40,7 @@ Following is a diagram of the robot's Hardware
 The main computational power of the robot comes from the Jetson, while an arduino controls and reads the rover encoders. <br>
 For the purpose of this library, I am only focusing in the arm unit with the camera attached ignoring the rover with exception of the Jetson.
 
-A gripper extension was built to increase the reach of the arm
+A gripper extension was built to increase the reach of the arm using Solidworks and 3D printing
 ![Gripper extention](/Images/Gripper.jpg)
 
 Also a PCB was designed to improve all the cable management from the Arduino to the motor drivers and encoders
